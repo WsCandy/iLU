@@ -58,7 +58,7 @@
 
 		instance.defaults = {
 
-
+			effect: 'fade'
 			
 		}
 
@@ -76,7 +76,37 @@
 
 		instance.public_methods = {
 
+			open: {
 
+				handler: function() {
+
+					instance.public_methods.open[settings.effect]();
+
+				},
+
+				fade: function() {
+
+
+
+				}
+
+			},
+
+			close: {
+
+				handler: function() {
+
+					instance.public_methods.close[settings.effect]();					
+
+				},
+
+				fade: function() {
+
+
+
+				}
+
+			}
 			
 		}
 
