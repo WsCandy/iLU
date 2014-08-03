@@ -1,6 +1,6 @@
 ;(function() {
 
-	var version = '0.1',
+	var version = 'Alpha',
 		pluginName = 'iLU';
 
 	$.fn.iLU = function(options, param) {
@@ -23,7 +23,7 @@
 
 				if(!instance) {
 
-					console.log('['+pluginName+' v'+version+'] - You\'re trying to fire a method on an element with no instance!');
+					console.error('['+pluginName+' v'+version+'] - You\'re trying to fire a method on an element with no instance!');
 					return false;
 
 				} else if(instance.public_methods[options]) {
@@ -68,13 +68,23 @@
 
 			initialise: function() {
 
-				alert('Plugin Fired! POW!');
+				instance.public_methods.bind();
 
 			}
 
 		}
 
 		instance.public_methods = {
+
+			bind: function() {
+
+				self.click(function() {
+
+					alert('BOUND!');
+
+				});
+
+			},
 
 			open: {
 
