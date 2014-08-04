@@ -70,6 +70,26 @@
 
 				instance.public_methods.bind();
 
+			},
+
+			createOverlay: function() {
+
+				if($('.iLU__overlay').size() <= 0) {
+
+					$('<div />', {
+
+						class : 'iLU__overlay'
+
+					}).prependTo('body');
+
+				}
+
+			},
+
+			bindClose: function() {
+
+
+
 			}
 
 		}
@@ -80,7 +100,7 @@
 
 				self.click(function() {
 
-					alert('BOUND!');
+					instance.public_methods.open['handler']();
 
 				});
 
@@ -90,6 +110,9 @@
 
 				handler: function() {
 
+					instance.private_methods.createOverlay();
+
+					
 					instance.public_methods.open[settings.effect]();
 
 				},
