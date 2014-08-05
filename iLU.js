@@ -76,7 +76,7 @@
 				instance.public_methods.bind();
 				instance.private_methods.createOverlay();
 				instance.private_methods.createPopup();
-				instance.private_methods.setup();
+				instance.private_methods.setupAnim();
 
 			},
 
@@ -124,7 +124,7 @@
 
 			},
 
-			setup : function() {
+			setupAnim : function() {
 
 				iLUpop.addClass('iLU__popup--'+settings.effect);
 
