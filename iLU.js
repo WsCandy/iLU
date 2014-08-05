@@ -60,7 +60,8 @@
 
 		instance.defaults = {
 
-			effect: 'fly'
+			type: 'img',
+			effect: 'scale'
 			
 		}
 
@@ -75,6 +76,7 @@
 				instance.public_methods.bind();
 				instance.private_methods.createOverlay();
 				instance.private_methods.createPopup();
+				instance.private_methods.setup();
 
 			},
 
@@ -106,6 +108,32 @@
 
 				iLUpop = $('.iLU__popup');
 
+			},
+
+			typeHandler: function() {
+
+				switch(settings.type) {
+
+					case 'img' : 
+
+						iLUpop.append('<img src="'+self.data('ilu')+'">');
+
+					break;
+
+				}
+
+			},
+
+			setup : function() {
+
+				iLUpop.addClass('iLU__popup--'+settings.effect);
+
+			},
+
+			revoke : function() {
+
+				iLUpop.removeClass('iLU__popup--'+settings.effect);				
+
 			}
 
 		}
@@ -114,7 +142,7 @@
 
 			bind: function() {
 
-				self.click(function() {
+				self.unbind('click').click(function() {
 
 					instance.public_methods.open['handler']();
 
@@ -127,16 +155,15 @@
 				handler: function() {
 
 					instance.public_methods.toggleOverlay();
+					instance.private_methods.typeHandler();
 
-					iLUpop.append('<img src="'+self.data('ilu')+'">');
+					iLUpop.css({
 
-					instance.public_methods.open[settings.effect]();
+						'top' : $(document).scrollTop() + 100 + 'px'
 
-				},
+					});
 
-				fly: function() {
-
-
+					instance.private_methods.revoke();
 
 				}
 
@@ -147,12 +174,6 @@
 				handler: function() {
 
 					instance.public_methods.close[settings.effect]();					
-
-				},
-
-				fly: function() {
-
-
 
 				}
 
