@@ -1,5 +1,7 @@
 ;(function() {
 
+	'use strict';
+
 	var version = 'Alpha',
 		pluginName = 'iLU';
 
@@ -69,6 +71,7 @@
 			initialise: function() {
 
 				instance.public_methods.bind();
+				instance.private_methods.createOverlay();
 
 			},
 
@@ -110,9 +113,7 @@
 
 				handler: function() {
 
-					instance.private_methods.createOverlay();
-
-					
+					instance.public_methods.toggleOverlay();
 					instance.public_methods.open[settings.effect]();
 
 				},
@@ -136,6 +137,22 @@
 				fade: function() {
 
 
+
+				}
+
+			},
+
+			toggleOverlay: function() {
+
+				var overlay = $('.iLU__overlay');
+
+				if(overlay.hasClass('active')) {
+
+					$('.iLU__overlay').removeClass('active');
+					
+				} else {
+
+					$('.iLU__overlay').addClass('active');
 
 				}
 
