@@ -60,11 +60,13 @@
 
 		instance.defaults = {
 
-			effect: 'fade'
+			effect: 'fly'
 			
 		}
 
 		var settings = $.extend(instance.defaults, options);
+
+		var iLUpop;
 
 		instance.private_methods = {
 
@@ -72,6 +74,7 @@
 
 				instance.public_methods.bind();
 				instance.private_methods.createOverlay();
+				instance.private_methods.createPopup();
 
 			},
 
@@ -89,9 +92,19 @@
 
 			},
 
-			bindClose: function() {
+			createPopup: function() {
 
+				if($('.iLU__popup').size() <= 0) {
 
+					$('<div />', {
+
+						class : 'iLU__popup'
+
+					}).prependTo('body');
+
+				}
+
+				iLUpop = $('.iLU__popup');
 
 			}
 
@@ -114,11 +127,14 @@
 				handler: function() {
 
 					instance.public_methods.toggleOverlay();
+
+					iLUpop.append('<img src="'+self.data('ilu')+'">');
+
 					instance.public_methods.open[settings.effect]();
 
 				},
 
-				fade: function() {
+				fly: function() {
 
 
 
@@ -134,7 +150,7 @@
 
 				},
 
-				fade: function() {
+				fly: function() {
 
 
 
