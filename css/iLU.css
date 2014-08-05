@@ -48,3 +48,22 @@ body {
       width: 100%; } }
   .pll.loading {
     background: url("../img/loader.gif") center no-repeat; }
+
+.iLU__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-transform: scale(0.95); }
+  .iLU__overlay.active {
+    z-index: 1000;
+    opacity: 1;
+    -webkit-transform: scale(1); }
