@@ -75,7 +75,13 @@ body {
   left: 0;
   right: 0;
   z-index: 101;
-  width: 50%; }
+  width: 50%;
+  -webkit-transition: .5s;
+  -webkit-transform: scale(1);
+  opacity: 1; }
   .iLU__popup img {
     float: left;
     width: 100%; }
+  .iLU__popup--scale {
+    -webkit-transform: scale(1.4);
+    opacity: 0; }
