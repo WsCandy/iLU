@@ -120,6 +120,12 @@
 
 					break;
 
+					default : 
+
+						iLUpop.append('<img src="'+self.data('ilu')+'">');
+
+					break;
+
 				}
 
 			},
